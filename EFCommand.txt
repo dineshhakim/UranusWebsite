@@ -1,0 +1,5 @@
+Add-Migration "Muster" -ConnectionString "Data Source=.;initial catalog= UranusWebsite;user id=SA;password=ura@tech12345;" -ConnectionProviderName System.Data.SqlClient
+
+Update-Database -ConnectionString "Data Source=.; initial catalog= UranusWebsite;user id=SA;password=ura@tech12345;" -ConnectionProviderName System.Data.SqlClient
+
+Install-Package Twitter.Bootstrap.MVC

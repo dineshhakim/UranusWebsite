@@ -1,0 +1,28 @@
+Dao Layer
+1. Create Interface for the repository you want to add such as IUserRepository
+2. Inherit IRepositoryBase and assign Model to generics in <T>
+	public interface IUserRepository:IRepository<User>
+
+3. Create class for the repository and inherit abstract class and interface for repository such as UserRepository
+ 	public class UserRepository :RepositoryBase<User>, IUserRepository
+	 
+4. Add this in ModuleInit of dao	 
+  registrar.RegisterType<IUserRepository, UserRepository>();
+ 
+ Service Layer 
+ 1. Create Interface for the Service you want to add such as IUserService
+2. Inherit IAbstractService and assign Model to generics in <T>
+	public interface IUserService:IAbstractService<User>
+
+3. Create class for the Service and inherit abstract class and interface for Service such as UserService
+ 	public class UserService : IUserService
+4. Add constructor to inject repository and unitOfWork
+ private readonly IUserRepository userRepository;
+        private readonly IUnitOfWork unitOfWork;
+        public ContactUsService(IUserRepository userRepository, IUnitOfWork unitOfWork)
+        {
+            this.userRepository = userRepository;
+            this.unitOfWork = unitOfWork;
+        }
+5. 	 Add this in ModuleInit of Service	 
+  registrar.RegisterType<IUserService, UserService>();	
