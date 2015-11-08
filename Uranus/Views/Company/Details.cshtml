@@ -1,0 +1,74 @@
+﻿@model Uranus.Domain.Entities.Company
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Company</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CompanyAddress)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CompanyAddress)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmaildId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmaildId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ContactNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ContactNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BusinessHours)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BusinessHours)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FacebookLink)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FacebookLink)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

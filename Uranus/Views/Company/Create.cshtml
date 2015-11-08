@@ -1,0 +1,76 @@
+﻿@model Uranus.Domain.Entities.Company
+
+@{
+    ViewBag.Title = "Create Company";
+}
+<div class="container">
+    <div class="row">
+        <h2>Create</h2>
+    </div>
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        @Html.ValidationSummary(true)
+        <div class="row">
+            <div class="form-group col-lg-4 col-lg-4">
+                @Html.LabelFor(model => model.CompanyName)
+
+                @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control" })
+
+
+            </div>
+
+            <div class="form-group col-lg-4">
+                @Html.LabelFor(model => model.CompanyType)
+
+                @Html.TextBoxFor(model => model.CompanyType, new { @class = "form-control" })
+
+
+            </div>
+
+            <div class="form-group col-lg-4">
+                @Html.LabelFor(model => model.CompanyAddress)
+                @Html.TextBoxFor(model => model.CompanyAddress, new { @class = "form-control" })
+
+
+            </div>
+
+            <div class="form-group col-lg-4">
+                @Html.LabelFor(model => model.EmaildId)
+                @Html.TextBoxFor(model => model.EmaildId, new { @class = "form-control" })
+            </div>
+            <div class="form-group col-lg-4">
+                @Html.LabelFor(model => model.ContactNo)
+                @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group col-lg-4">
+                @Html.LabelFor(model => model.BusinessHours)
+                @Html.TextBoxFor(model => model.BusinessHours, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group col-lg-4">
+                @Html.LabelFor(model => model.FacebookLink)
+                @Html.TextBoxFor(model => model.FacebookLink, new { @class = "form-control" })
+
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-12">
+                <input type="hidden" value="contact" name="save">
+                <input type="submit" value="Create" class="btn btn-primary" />
+
+            </div>
+
+            <div class="clearfix"></div>
+            <div class="form-group col-lg-12">
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        </div>
+
+    }
+
+</div>

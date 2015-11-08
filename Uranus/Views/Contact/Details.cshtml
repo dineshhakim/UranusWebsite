@@ -1,0 +1,55 @@
+﻿@model Uranus.Domain.Entities.ContactUs
+ 
+
+<div class="container">
+    <div class="row">
+        <h4>Contact Us By: @Html.DisplayFor(model => model.Name)</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.EmailId)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PhoneNo)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Message)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Message)
+            </dd>
+
+        </dl>
+    </div>
+    <p>
+
+        @Html.ActionLink("Back to List", "List")
+    </p>
+</div>

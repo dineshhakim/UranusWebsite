@@ -1,0 +1,70 @@
+﻿@model Uranus.Domain.Entities.Products
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@ViewBag.Title</h1>
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="active">Team</li>
+            </ol>
+        </div>
+
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-12">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <h4>Products</h4>
+                    <hr />
+                    @Html.ValidationSummary(true)
+                    @Html.HiddenFor(model => model.Id)
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProductName, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ProductName)
+                            @Html.ValidationMessageFor(model => model.ProductName)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ProductDescription, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ProductDescription)
+                            @Html.ValidationMessageFor(model => model.ProductDescription)
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.ImageUrl, new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.ImageUrl)
+                            @Html.ValidationMessageFor(model => model.ImageUrl)
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-4">
+                        <button class="btn btn-primary" type="submit" id="save">Submit</button>
+                        &nbsp;&nbsp;
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                </div>
+            }
+
+            
+        </div>
+    </div>
+    <div id="confirmDialog" title="Message"></div>
+</div>

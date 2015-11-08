@@ -1,0 +1,98 @@
+﻿@model Uranus.Domain.Entities.Customer
+
+@{
+    ViewBag.Title = "Create";
+}
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">@ViewBag.Title</h1>
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="active">Team</li>
+            </ol>
+        </div>
+
+    </div><!-- /.row -->
+    <div class="row">
+        <div class="col-sm-12">
+            @Html.AntiForgeryToken()
+            @if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+            {
+                <div class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert">×</a>
+                    <h4>Validation Errors</h4>
+                    @Html.ValidationSummary()
+                </div>
+            }
+            @using (Html.BeginForm("Create", "Customer", FormMethod.Post, new { enctype = "multipart/form-data" }))
+            {
+                
+
+                <div class="row">
+
+
+                    <div class="form-group col-lg-4">
+                        @Html.LabelFor(model => model.Name)
+
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+
+                        @Html.ValidationMessageFor(model => model.Name)
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        @Html.LabelFor(model => model.Address)
+
+                        @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        @Html.LabelFor(model => model.EmailId)
+
+                        @Html.TextBoxFor(model => model.EmailId, new { @class = "form-control" })
+
+                    </div>
+
+                    <div class="form-group col-lg-4">
+                        @Html.LabelFor(model => model.ContactNo)
+
+                        @Html.TextBoxFor(model => model.ContactNo, new { @class = "form-control" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+                        @Html.LabelFor(model => model.Order)
+
+                        @Html.TextBoxFor(model => model.Order, new { @class = "form-control" })
+
+                    </div>
+                    <div class="form-group col-lg-4">
+                        @Html.LabelFor(model => model.ImageUrl)
+
+                        <div class="clearfix"></div>
+                        <span class="btn btn-default">
+                            @Html.TextBoxFor(model => model.ImageUrl, new {type = "file" })
+                        </span>
+
+                    </div>
+                    <div class="form-group col-lg-4">
+                        @Html.LabelFor(model => model.About)
+
+                        @Html.TextAreaFor(model => model.About, new { @class = "form-control" })
+
+                    </div>
+                    <div class="clearfix"></div>
+                    <div class="form-group col-lg-4"></div>
+                    <div class="form-group col-lg-4">
+                        <button class="btn btn-primary" type="submit" id="save">Submit</button>
+                        &nbsp;&nbsp;
+                        @Html.ActionLink("Back to List", "Index")
+                    </div>
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+</div>

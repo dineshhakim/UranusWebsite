@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Uranus.Domain.Entities.Products>
+@{
+    ViewBag.Title = "Services";
+}
+ 
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                Services
+                <small>What We Do</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li class="active">Services</li>
+            </ol>
+        </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+        <div class="col-lg-12">
+            @*--1200x300*@
+            <img src="~/Images/uranuscover.jpg" class="img-responsive">
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- Service Paragraphs -->
+    <div class="row">
+        <div class="col-md-8">
+            <h2 class="page-header">Our Services</h2>
+            <p align="justify">
+                Uranus Solution is designed to meet the technological requirements of the currentfinancial
+                institutions in Nepal which includes, D class MFI licensed by NRB, FINGO and microfinance program
+                run by cooperative. The architecture of the system is multi-tiered and distributed, ensuring high
+                availability and scalability. Modules can share physical servers or be distributed over a number of
+                servers for increased availability and capacity. URANUS solution is fully tested on private and public cloud.
+                As we are operating this software as a cloud model since last 3 years and drive the successful result in both public and private cloud.
+
+            </p>
+        </div>
+        <div class="col-md-4">
+            <h2 class="page-header">Something More</h2>
+            <p>Etharums ser quidem rerum facilis dolores nemis omnis fugats vitaes nemo minima rerums unsers sadips amets.</p>
+            <a href="#" class="btn btn-primary">Click Me!</a>
+        </div>
+    </div>
+    <!-- /.row -->
+    <!-- Service Tabs -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Services</h2>
+
+            <ul class="nav nav-tabs" id="myTab">
+
+                @foreach (var item in Model)
+                {
+                    <li>
+                        <a data-toggle="tab" href="#@item.ProductName">@Html.DisplayFor(modelItem => item.ProductName)</a>
+                    </li>
+
+                }
+            </ul>
+            <div class="tab-content" id="myTabContent">
+                @foreach (var item in Model)
+                {
+                    <div id='@item.ProductName' class="tab-pane">
+                        <i class="fa fa-gear pull-left fa-4x"></i>
+                             @Html.DisplayTextFor(modelItem => item.ProductDescription) 
+
+                    </div>
+                }
+
+
+            </div>
+        </div>
+    </div>
+    <!-- /.row -->
+
+</div>

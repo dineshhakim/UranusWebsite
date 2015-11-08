@@ -1,0 +1,86 @@
+﻿@model Uranus.Models.About
+@{
+    ViewBag.Title = "About";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">
+                About
+                <small>It's Nice to Meet You!</small>
+            </h1>
+            <ol class="breadcrumb">
+                <li>
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
+                <li class="active">About</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <img src="~/Images/company-logo.gif" class="img-responsive">
+        </div>
+        <div class="col-md-6">
+            <h2>Welcome to 'Uranus Tech Nepal Pvt. Ltd.'</h2>
+            <p align="justify">
+                Uranus Tech Nepal Pvt. Ltd is an information technology company which was started with the
+                aim of providing cloud based financial software to the customers to meet their business need in
+                a cost effective way to save their rising IT cost without impacting the quality. Our objective is to
+                recognize your business and work together to achieve a common business goal.
+                Established in the year 2013 Uranus Tech Nepal is a leading player in the field of Nepalese
+                Microfinance business for cloud based URANUS solution. We have a complete team of
+                experienced software engineers, account professionals, system analysts, team leaders, network
+                engineer and other consultants with us who work together to deliver the project on time. We
+                believe 'hard work is the key to success' but 'smart work is the key to perfection'.
+                We specialize in helping clients secure their operations, increase the work efficiency and
+                utilization of their resources. We have provided solutions which ranges from small scale
+                industries to huge supply chains. Microfinance institution, Co-Operatives, Investment Company,
+                Wholesale lending institution and Dairy Production Company are the example which we are
+                working in the present context.
+            </p>
+        </div>
+    </div>
+    <!-- Team Member Profiles -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Our Team</h2>
+        </div>
+        @foreach (var item in Model.TeamMembers)
+        {
+            <div class="col-sm-4">
+                <img src="@Url.Content(String.Format("~/Images/{0}", item.ImageUrl))" class="img-responsive" width="90%" height="90%">
+                @Html.DisplayFor(modelItem => item.Name)
+                <small>@Html.DisplayFor(modelItem => item.Designation)</small>
+                <p>@Html.DisplayFor(modelItem => item.About)</p>
+                <ul class="list-unstyled list-inline list-social-icons">
+                    <li class="tooltip-social facebook-link">
+                        <a title="Facebook" data-placement="top" data-toggle="tooltip" href="#"><i class="fa fa-facebook-square fa-2x"></i></a>
+                    </li>
+                </ul>
+
+            </div>
+        }
+
+
+    </div>
+    <!-- Our Customers -->
+    <div class="row">
+        <div class="col-lg-12">
+            <h2 class="page-header">Our Customers</h2>
+        </div>
+        @foreach (var item in Model.Customers)
+        {
+            <div class="col-md-2 col-sm-4 col-xs-6">
+
+                <img title="@item.Name" src="@Url.Content(String.Format("~/Images/{0}", item.ImageUrl))" class="img-responsive" width="90%" height="90%">
+                <figcaption>@item.Name  </figcaption>
+
+
+
+
+            </div>
+        }
+    </div>
+</div>

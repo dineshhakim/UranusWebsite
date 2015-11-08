@@ -1,0 +1,67 @@
+﻿@model IEnumerable<Uranus.Domain.Entities.ContactUs>
+
+@{
+    ViewBag.Title = "Contact List";
+}
+
+
+<div class="container">
+    @Html.AntiForgeryToken()
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">Contact List</h1>
+            <ol class="breadcrumb">
+                <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                <li class="active">Contact</li>
+            </ol>
+        </div>
+
+    </div><!-- /.row -->
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Address)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EmailId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhoneNo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Message)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EmailId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ShortMessage)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Details", "Details", new { id = item.Id })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>
